@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class Employee extends EmployeeAudit {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
 
