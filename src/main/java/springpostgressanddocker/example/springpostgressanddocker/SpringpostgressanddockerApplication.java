@@ -26,15 +26,15 @@ public class SpringpostgressanddockerApplication {
 		SpringApplication.run(SpringpostgressanddockerApplication.class, args);
 	}
 
-	@SneakyThrows
-	@EventListener(ApplicationReadyEvent.class)
-	public void triggerMail(){
+//	@SneakyThrows
+//	@EventListener(ApplicationReadyEvent.class)
+//	public void triggerMail(){
 //		Sending simple emails without attachment
 //		service.sendSimpleEmail("kibetdonald97@gmail.com",  "Greetings Donald, I" +
 //				" am writing this email to notify you that you qualified for the Chevening scholarship" +
 //				"at the Burnimngham university.", "Greetings"  );
 
 //		sending emails with attachment
-		service.sendEmailWithAttachment("kibetdonald97@gmail.com",  "Greetings Donald", "This is a reminder", "C:\\Users\\user\\Desktop\\Scholarship.docx");
-	}
+//		service.sendEmailWithAttachment("kibetdonald97@gmail.com",  "Greetings Donald", "This is a reminder", "C:\\Users\\user\\Desktop\\Scholarship.docx");
+//	}
 }
