@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepo;
@@ -35,24 +36,24 @@ public class EmployeeController {
 
     }
 //    Create a method for posting the data
+
+
     @PostMapping("/addEmployee")
-
+    @CrossOrigin(origins ="http://localhost:3000")
     public Employee addEmployee(@RequestBody Employee employee ){
-        sendmail();
+//        sendmail();
        return employeeRepo.save(employee);
-
-
     }
-
-
 //    Method to fetch the data from PostgreSQL
     @GetMapping("/getAllemployees")
+    @CrossOrigin
     public ResponseEntity<List<Employee>> getAllEmployees(){
         return ResponseEntity.ok(employeeRepo.findAll());
     }
 
 //    Method to fetch based on employeeId
     @GetMapping("/getEmployee/{id}")
+    @CrossOrigin
     public ResponseEntity<Employee> findEmployeeId(@PathVariable(value = "id") Integer id){
        Employee employee = employeeRepo.findById(id).orElseThrow(
                ()->new ResourceNotFoundException("Employee Not Found"+id));
@@ -60,6 +61,7 @@ public class EmployeeController {
     }
 //   Update employee records
     @PutMapping("/updateEmployee/{id}")
+    @CrossOrigin
     Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable int id) {
         return employeeRepo.findById(id)
                 .map(employee -> {
@@ -73,12 +75,18 @@ public class EmployeeController {
     }
 //    Delete employee
     @DeleteMapping("/deleteEmployee/{id}")
+    @CrossOrigin
     public ResponseEntity<Void> deleteEmployee(@PathVariable(value="id") Integer id){
         Employee employee = employeeRepo.findById(id).orElseThrow(
                 ()->new ResourceNotFoundException("Employee Not Found"+id));
         employeeRepo.delete(employee);
         System.out.print("Deleted successfully");
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("Say")
+    public ResponseEntity<String> Say(){
+        return ResponseEntity.ok("Hey Donald");
     }
 
     }

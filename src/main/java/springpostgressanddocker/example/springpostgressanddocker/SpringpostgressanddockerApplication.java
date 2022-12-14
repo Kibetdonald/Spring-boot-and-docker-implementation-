@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import springpostgressanddocker.example.springpostgressanddocker.Models.AuditorAwareImpl;
 import springpostgressanddocker.example.springpostgressanddocker.Services.EmailSenderService;
 
